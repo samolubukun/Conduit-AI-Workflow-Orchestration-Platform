@@ -138,6 +138,37 @@ Built on **Next.js 15**, **React 19**, **Drizzle ORM (PostgreSQL)**, and **Innge
 
 ---
 
+## Visual Studio & Platform Screenshots
+
+<table>
+  <tr>
+    <td align="center" width="50%">
+      <img src="./public/screenshots/canvas-editor.jpg" alt="Conduit Visual Workflow Canvas" /><br />
+      <b>Multi-Node DAG Canvas Studio</b><br />
+      <sub>Visual node graph connecting triggers, AI models (OpenAI, Gemini), and outbound alerts (Slack, Resend, Telegram)</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="./public/screenshots/node-selector.jpg" alt="Node & Trigger Selector" /><br />
+      <b>Categorized Node & Trigger Library</b><br />
+      <sub>Slide-over drawer with triggers, logic conditions, AI models, voice TTS, and team alerts</sub>
+    </td>
+  </tr>
+  <tr>
+    <td align="center" width="50%">
+      <img src="./public/screenshots/integrations-drawer.jpg" alt="Action Integrations Drawer" /><br />
+      <b>Integrations & External Actions</b><br />
+      <sub>Comprehensive ecosystem support for Telegram, Airtable, S3/R2, Pinecone, Linear, and Twilio</sub>
+    </td>
+    <td align="center" width="50%">
+      <img src="./public/screenshots/credentials-vault.jpg" alt="Encrypted Credentials Vault" /><br />
+      <b>Encrypted Credentials Vault & Dashboard</b><br />
+      <sub>Clean dashboard shell with dark navy action controls, credit balance tracker, and AES encrypted keys</sub>
+    </td>
+  </tr>
+</table>
+
+---
+
 ## Key Highlights
 
 - **Visual Workflow Studio**: Drag-and-drop canvas powered by `@xyflow/react` (React Flow) with real-time connection snapping, validation, and node configuration dialogs.
