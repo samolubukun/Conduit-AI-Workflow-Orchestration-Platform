@@ -11,7 +11,9 @@ const connectionString = process.env.DATABASE_URL || "";
 const client =
   globalForDb.conn ??
   postgres(connectionString, {
-    max: 10,
+    max: process.env.NODE_ENV === "production" ? 10 : 5,
+    idle_timeout: 20,
+    connect_timeout: 10,
     prepare: false,
   });
 
