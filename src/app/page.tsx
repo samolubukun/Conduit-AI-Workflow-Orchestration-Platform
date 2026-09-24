@@ -13,7 +13,8 @@ import {
   Cpu,
   ArrowUpRight,
   GitBranch,
-  Lock
+  Lock,
+  Github
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { LandingNavbar, LandingFooter } from "@/components/landing/landing-nav";
@@ -59,6 +60,17 @@ export default function LandingPage() {
                 <Link href="/workflows">
                   <span>Open Studio Dashboard</span>
                 </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="h-12 px-6 rounded-2xl text-sm font-semibold bg-card/40 backdrop-blur-sm hover:bg-card/80 border-border/80 gap-2">
+                <a 
+                  href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>GitHub</span>
+                </a>
               </Button>
             </div>
 
@@ -109,10 +121,15 @@ export default function LandingPage() {
                 <Image src="/logos/stripe.svg" alt="Stripe" width={28} height={20} />
                 <span>Stripe</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-semibold">
+              <a 
+                href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
+                target="_blank" 
+                rel="noopener noreferrer" 
+                className="flex items-center gap-2 text-sm font-semibold hover:text-foreground transition-colors"
+              >
                 <Image src="/logos/github.svg" alt="GitHub" width={20} height={20} />
                 <span>GitHub</span>
-              </div>
+              </a>
               <div className="flex items-center gap-2 text-sm font-semibold">
                 <Image src="/logos/notion.svg" alt="Notion" width={20} height={20} />
                 <span>Notion</span>
@@ -170,6 +187,17 @@ export default function LandingPage() {
                 <Link href="/workflows">
                   <span>View Demo Workflows</span>
                 </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="h-12 px-6 rounded-2xl text-sm font-semibold bg-card/40 hover:bg-card/80 border-border/80 gap-2">
+                <a 
+                  href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-2"
+                >
+                  <Github className="w-4 h-4" />
+                  <span>Star on GitHub</span>
+                </a>
               </Button>
             </div>
           </div>

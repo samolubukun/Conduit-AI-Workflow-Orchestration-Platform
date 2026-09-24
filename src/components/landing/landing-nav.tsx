@@ -42,6 +42,17 @@ export function LandingNavbar() {
 
         {/* Actions / Auth */}
         <div className="hidden sm:flex items-center gap-3">
+          <Button asChild variant="outline" size="sm" className="text-xs font-semibold rounded-xl border-border/80 hover:bg-muted/60 gap-1.5 shadow-sm">
+            <a 
+              href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
+              target="_blank" 
+              rel="noopener noreferrer"
+              className="flex items-center gap-1.5"
+            >
+              <Github className="w-3.5 h-3.5" />
+              <span>GitHub</span>
+            </a>
+          </Button>
           <Button asChild variant="ghost" size="sm" className="text-xs font-semibold">
             <Link href="/login">Sign in</Link>
           </Button>
@@ -108,6 +119,16 @@ export function LandingNavbar() {
           </div>
 
           <div className="pt-4 border-t border-border/40 flex flex-col gap-2">
+            <Button asChild variant="outline" className="w-full justify-center text-xs font-semibold gap-2">
+              <a 
+                href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
+                target="_blank" 
+                rel="noopener noreferrer"
+              >
+                <Github className="w-4 h-4" />
+                <span>GitHub Repository</span>
+              </a>
+            </Button>
             <Button asChild variant="outline" className="w-full justify-center text-xs font-semibold">
               <Link href="/login">Sign in</Link>
             </Button>
@@ -154,11 +175,20 @@ export function LandingFooter() {
         </p>
 
         {/* Centered Links Bar */}
-        <nav className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm font-medium text-slate-300/90 mb-12">
+        <nav className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm font-medium text-slate-300/90 mb-10">
           <a href="#features" className="hover:text-indigo-400 transition-colors">Features</a>
           <a href="#workflow" className="hover:text-indigo-400 transition-colors">Visual Simulator</a>
           <a href="#integrations" className="hover:text-indigo-400 transition-colors">Integrations</a>
           <a href="#pricing" className="hover:text-indigo-400 transition-colors">Pricing</a>
+          <a 
+            href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
+            target="_blank" 
+            rel="noopener noreferrer" 
+            className="inline-flex items-center gap-1.5 hover:text-indigo-400 transition-colors"
+          >
+            <Github className="w-3.5 h-3.5" />
+            <span>GitHub</span>
+          </a>
           <Link href="/terms" className="hover:text-indigo-400 transition-colors">Terms of Service</Link>
           <Link href="/privacy" className="hover:text-indigo-400 transition-colors">Privacy Policy</Link>
         </nav>
