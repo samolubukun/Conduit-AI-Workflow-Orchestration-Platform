@@ -1,0 +1,57 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Dark Mode Outer Glow -->
+    <radialGradient id="glow-dark" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#4F46E5" stop-opacity="0.35" />
+      <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+    </radialGradient>
+
+    <!-- Deep Neon Cyber Streams -->
+    <linearGradient id="stream-main-dark" x1="10" y1="24" x2="38" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="50%" stop-color="#8B5CF6" />
+      <stop offset="100%" stop-color="#06B6D4" />
+    </linearGradient>
+
+    <linearGradient id="stream-upper-dark" x1="10" y1="24" x2="36" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="50%" stop-color="#A855F7" />
+      <stop offset="100%" stop-color="#EC4899" />
+    </linearGradient>
+
+    <linearGradient id="stream-lower-dark" x1="10" y1="24" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#6366F1" />
+      <stop offset="50%" stop-color="#06B6D4" />
+      <stop offset="100%" stop-color="#10B981" />
+    </linearGradient>
+
+    <filter id="shadow-dark" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1.5" stdDeviation="2" flood-color="#000000" flood-opacity="0.8"/>
+    </filter>
+  </defs>
+
+  <!-- Deep Obsidian background with subtle border -->
+  <rect x="1" y="1" width="46" height="46" rx="13" fill="#030712" stroke="#1F2937" stroke-width="1.2"/>
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#glow-dark)"/>
+
+  <!-- Fluid Conduit Pipelines -->
+  <path d="M 12 24 C 18 24, 20 12, 34 12" stroke="url(#stream-upper-dark)" stroke-width="2.75" stroke-linecap="round"/>
+  <path d="M 12 24 C 20 24, 26 24, 38 24" stroke="url(#stream-main-dark)" stroke-width="2.75" stroke-linecap="round"/>
+  <path d="M 12 24 C 18 24, 20 36, 34 36" stroke="url(#stream-lower-dark)" stroke-width="2.75" stroke-linecap="round"/>
+
+  <!-- Origin Node -->
+  <circle cx="12" cy="24" r="5" fill="#030712" stroke="#6366F1" stroke-width="2.5" filter="url(#shadow-dark)"/>
+  <circle cx="12" cy="24" r="2.2" fill="#A5B4FC"/>
+
+  <!-- Top Destination Node -->
+  <circle cx="34" cy="12" r="4.2" fill="#030712" stroke="#EC4899" stroke-width="2" filter="url(#shadow-dark)"/>
+  <circle cx="34" cy="12" r="1.8" fill="#F472B6"/>
+
+  <!-- Center Destination Node -->
+  <circle cx="38" cy="24" r="4.5" fill="#030712" stroke="#06B6D4" stroke-width="2.2" filter="url(#shadow-dark)"/>
+  <circle cx="38" cy="24" r="2" fill="#22D3EE"/>
+
+  <!-- Bottom Destination Node -->
+  <circle cx="34" cy="36" r="4.2" fill="#030712" stroke="#10B981" stroke-width="2" filter="url(#shadow-dark)"/>
+  <circle cx="34" cy="36" r="1.8" fill="#34D399"/>
+</svg>
