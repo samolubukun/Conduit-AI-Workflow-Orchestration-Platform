@@ -1,0 +1,57 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <!-- Light Mode Ambient Glow -->
+    <radialGradient id="glow-light" cx="50%" cy="50%" r="50%">
+      <stop offset="0%" stop-color="#EEF2FF" stop-opacity="0.8" />
+      <stop offset="100%" stop-color="#FFFFFF" stop-opacity="1" />
+    </radialGradient>
+
+    <!-- Vibrant High-Contrast Light Gradients -->
+    <linearGradient id="stream-main-light" x1="10" y1="24" x2="38" y2="24" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="50%" stop-color="#7C3AED" />
+      <stop offset="100%" stop-color="#0891B2" />
+    </linearGradient>
+
+    <linearGradient id="stream-upper-light" x1="10" y1="24" x2="36" y2="12" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="50%" stop-color="#9333EA" />
+      <stop offset="100%" stop-color="#DB2777" />
+    </linearGradient>
+
+    <linearGradient id="stream-lower-light" x1="10" y1="24" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#4F46E5" />
+      <stop offset="50%" stop-color="#0891B2" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+
+    <filter id="shadow-light" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="1" stdDeviation="1.5" flood-color="#4F46E5" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Clean Snow/Light Squircle with delicate border -->
+  <rect x="1" y="1" width="46" height="46" rx="13" fill="#FFFFFF" stroke="#E2E8F0" stroke-width="1.2"/>
+  <rect x="2" y="2" width="44" height="44" rx="12" fill="url(#glow-light)"/>
+
+  <!-- Fluid Conduit Pipelines -->
+  <path d="M 12 24 C 18 24, 20 12, 34 12" stroke="url(#stream-upper-light)" stroke-width="2.75" stroke-linecap="round"/>
+  <path d="M 12 24 C 20 24, 26 24, 38 24" stroke="url(#stream-main-light)" stroke-width="2.75" stroke-linecap="round"/>
+  <path d="M 12 24 C 18 24, 20 36, 34 36" stroke="url(#stream-lower-light)" stroke-width="2.75" stroke-linecap="round"/>
+
+  <!-- Origin Node -->
+  <circle cx="12" cy="24" r="5" fill="#FFFFFF" stroke="#4F46E5" stroke-width="2.5" filter="url(#shadow-light)"/>
+  <circle cx="12" cy="24" r="2.2" fill="#6366F1"/>
+
+  <!-- Top Destination Node -->
+  <circle cx="34" cy="12" r="4.2" fill="#FFFFFF" stroke="#DB2777" stroke-width="2" filter="url(#shadow-light)"/>
+  <circle cx="34" cy="12" r="1.8" fill="#EC4899"/>
+
+  <!-- Center Destination Node -->
+  <circle cx="38" cy="24" r="4.5" fill="#FFFFFF" stroke="#0891B2" stroke-width="2.2" filter="url(#shadow-light)"/>
+  <circle cx="38" cy="24" r="2" fill="#06B6D4"/>
+
+  <!-- Bottom Destination Node -->
+  <circle cx="34" cy="36" r="4.2" fill="#FFFFFF" stroke="#059669" stroke-width="2" filter="url(#shadow-light)"/>
+  <circle cx="34" cy="36" r="1.8" fill="#10B981"/>
+</svg>
