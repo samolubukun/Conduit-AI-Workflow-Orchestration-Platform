@@ -8,8 +8,7 @@
 <h1 align="center">Conduit</h1>
 
 <p align="center">
-  <b>Event-Driven Visual AI Workflow Orchestration Platform</b><br />
-  Build, test, and deploy intelligent multi-model pipelines with durable execution and native credit billing.
+  <b>Conduit</b> is an event-driven, visual <b>AI workflow orchestration platform</b> that combines the visual flexibility of node-based automation tools with the power of durable, asynchronous AI chaining and a self-hosted credit economy.
 </p>
 
 <p align="center">
@@ -22,8 +21,6 @@
   <img src="https://img.shields.io/badge/tRPC_v11-2596BE?style=for-the-badge&logo=trpc&logoColor=white" alt="tRPC" />
   <img src="https://img.shields.io/badge/Tailwind_CSS-38B2AC?style=for-the-badge&logo=tailwind-css&logoColor=white" alt="Tailwind CSS" />
 </p>
-
-Built on **Next.js 15**, **React 19**, **Drizzle ORM (PostgreSQL)**, and **Inngest**, Conduit combines the visual flexibility of node-based automation tools with the power of durable, asynchronous AI chaining and a self-hosted credit economy.
 
 ---
 
