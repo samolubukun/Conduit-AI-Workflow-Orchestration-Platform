@@ -240,6 +240,10 @@ graph LR
   Engine -->|Update Run Status & Deduct Credits| DB
 ```
 
+<p align="center">
+  <img src="./public/conduit-diagram.png" alt="Conduit System Architecture Diagram" width="100%" />
+</p>
+
 ---
 
 ## Credit-Based Billing and Payment Gateway
