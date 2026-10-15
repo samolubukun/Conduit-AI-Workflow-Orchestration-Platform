@@ -42,6 +42,7 @@ export const metadata: Metadata = {
 
 import { StackProvider } from "@stackframe/stack";
 import { stackServerApp } from "@/lib/stack-auth";
+import { ShowcaseProvider } from "@/components/landing/showcase-modal";
 
 export default function RootLayout({
   children,
@@ -57,7 +58,9 @@ export default function RootLayout({
             <TRPCReactProvider>
               <NuqsAdapter>
                 <Provider>
-                  {children}
+                  <ShowcaseProvider>
+                    {children}
+                  </ShowcaseProvider>
                   <Toaster />
                 </Provider>
               </NuqsAdapter>

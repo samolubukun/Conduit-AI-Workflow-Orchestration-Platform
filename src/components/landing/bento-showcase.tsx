@@ -43,7 +43,18 @@ const SECONDARY_SCREENSHOTS = [
   },
 ];
 
+import { useShowcase } from "@/components/landing/showcase-modal";
+
 export function BentoShowcase() {
+  const { isOpenSourceMode, openShowcaseModal } = useShowcase();
+
+  const handleLaunchStudioClick = (e: React.MouseEvent) => {
+    if (isOpenSourceMode) {
+      e.preventDefault();
+      openShowcaseModal("Interactive Workflow Studio");
+    }
+  };
+
   return (
     <section className="py-24 px-4 sm:px-6 max-w-[1200px] mx-auto">
       
@@ -81,6 +92,7 @@ export function BentoShowcase() {
 
           <Link 
             href="/workflows"
+            onClick={handleLaunchStudioClick}
             className="inline-flex items-center gap-2 text-[13px] sm:text-[14px] font-normal bg-[#17191c] text-[#ffffff] px-4 sm:px-5 py-2 sm:py-2.5 rounded-full hover:bg-black transition-all shrink-0 self-start sm:self-auto"
           >
             <span>Launch studio</span>

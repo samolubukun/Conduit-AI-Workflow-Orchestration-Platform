@@ -3,9 +3,18 @@
 import React, { useState } from "react";
 import Link from "next/link";
 import { Check } from "lucide-react";
+import { useShowcase } from "@/components/landing/showcase-modal";
 
 export function PricingPreview() {
   const [billingCycle, setBillingCycle] = useState<"monthly" | "yearly">("monthly");
+  const { isOpenSourceMode, openShowcaseModal } = useShowcase();
+
+  const handlePlanClick = (e: React.MouseEvent, planName: string) => {
+    if (isOpenSourceMode) {
+      e.preventDefault();
+      openShowcaseModal(`${planName} Tier Activation`);
+    }
+  };
 
   const plans = [
     {
@@ -148,6 +157,7 @@ export function PricingPreview() {
 
             <Link
               href={plan.href}
+              onClick={(e) => handlePlanClick(e, plan.name)}
               className={`w-full py-2.5 rounded-full text-center text-[15px] font-normal transition-all ${
                 plan.popular
                   ? "bg-[#17191c] text-[#ffffff] hover:bg-black"

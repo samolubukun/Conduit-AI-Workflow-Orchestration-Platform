@@ -20,10 +20,19 @@ import { AboutSection } from "@/components/landing/about-section";
 import { BentoShowcase } from "@/components/landing/bento-showcase";
 import { IntegrationGrid } from "@/components/landing/integration-grid";
 import { PricingPreview } from "@/components/landing/pricing-preview";
+import { useShowcase } from "@/components/landing/showcase-modal";
 
 export default function LandingPage() {
   const [composerPrompt, setComposerPrompt] = useState("");
   const [submittedPrompt, setSubmittedPrompt] = useState<string | null>(null);
+  const { isOpenSourceMode, openShowcaseModal } = useShowcase();
+
+  const handleStartBuildingClick = (e: React.MouseEvent) => {
+    if (isOpenSourceMode) {
+      e.preventDefault();
+      openShowcaseModal("Studio Registration & Workspace Setup");
+    }
+  };
 
   const handleComposerSubmit = (e: React.FormEvent) => {
     e.preventDefault();
@@ -59,6 +68,7 @@ export default function LandingPage() {
               <div className="mt-9 flex flex-wrap items-center justify-center gap-4 font-['var(--font-sohne)',sans-serif]">
                 <Link
                   href="/signup"
+                  onClick={handleStartBuildingClick}
                   className="inline-flex items-center justify-center text-[15px] font-normal bg-transparent text-[#17191c] border border-[#17191c] px-7 py-3 rounded-full hover:bg-[#17191c] hover:text-[#ffffff] transition-all"
                 >
                   <span>Start building free</span>
@@ -268,6 +278,7 @@ export default function LandingPage() {
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4 font-['var(--font-sohne)',sans-serif]">
               <Link
                 href="/signup"
+                onClick={handleStartBuildingClick}
                 className="inline-flex items-center justify-center text-[15px] font-normal bg-[#17191c] text-[#ffffff] px-8 py-3 rounded-full hover:bg-black transition-all"
               >
                 <span>Create free account</span>

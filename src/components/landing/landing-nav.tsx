@@ -4,9 +4,18 @@ import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { Menu, X, Github, ArrowRight } from "lucide-react";
+import { useShowcase } from "@/components/landing/showcase-modal";
 
 export function LandingNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const { isOpenSourceMode, openShowcaseModal } = useShowcase();
+
+  const handleAuthClick = (e: React.MouseEvent, label: string) => {
+    if (isOpenSourceMode) {
+      e.preventDefault();
+      openShowcaseModal(label);
+    }
+  };
 
   return (
     <header className="sticky top-0 z-50 w-full bg-[#ffffff]/90 backdrop-blur-md transition-all border-b border-[#f2f2f3]">
@@ -56,12 +65,14 @@ export function LandingNavbar() {
           </a>
           <Link 
             href="/login" 
+            onClick={(e) => handleAuthClick(e, "Account Sign In")}
             className="font-['var(--font-sohne)',sans-serif] text-[15px] font-normal text-[#17191c] hover:text-[#777b86] transition-colors"
           >
             Sign in
           </Link>
           <Link 
             href="/signup" 
+            onClick={(e) => handleAuthClick(e, "Sign Up & Registration")}
             className="inline-flex items-center justify-center font-['var(--font-sohne)',sans-serif] text-[15px] font-normal bg-[#17191c] text-[#ffffff] px-5 py-2 rounded-full hover:bg-black transition-all"
           >
             Get started
@@ -124,12 +135,20 @@ export function LandingNavbar() {
           <div className="pt-4 border-t border-[#f2f2f3] flex flex-col gap-3">
             <Link 
               href="/login" 
+              onClick={(e) => {
+                handleAuthClick(e, "Account Sign In");
+                setMobileMenuOpen(false);
+              }}
               className="w-full text-center py-2.5 font-['var(--font-sohne)',sans-serif] text-[15px] text-[#17191c] border border-[#17191c] rounded-full"
             >
               Sign in
             </Link>
             <Link 
               href="/signup" 
+              onClick={(e) => {
+                handleAuthClick(e, "Sign Up & Registration");
+                setMobileMenuOpen(false);
+              }}
               className="w-full text-center py-2.5 font-['var(--font-sohne)',sans-serif] text-[15px] bg-[#17191c] text-[#ffffff] rounded-full"
             >
               Get started
@@ -142,6 +161,15 @@ export function LandingNavbar() {
 }
 
 export function LandingFooter() {
+  const { isOpenSourceMode, openShowcaseModal } = useShowcase();
+
+  const handleStudioClick = (e: React.MouseEvent) => {
+    if (isOpenSourceMode) {
+      e.preventDefault();
+      openShowcaseModal("Interactive Workflow Studio");
+    }
+  };
+
   return (
     <footer className="border-t border-[#f2f2f3] bg-[#ffffff] text-[#17191c] py-20 px-4 sm:px-6">
       <div className="max-w-[1200px] mx-auto">
@@ -193,7 +221,15 @@ export function LandingFooter() {
             </h4>
             <ul className="space-y-3 font-['var(--font-sohne)',sans-serif] text-[15px] text-[#17191c]">
               <li><a href="#pricing" className="hover:text-[#777b86] transition-colors">Pricing</a></li>
-              <li><Link href="/workflows" className="hover:text-[#777b86] transition-colors">Studio</Link></li>
+              <li>
+                <Link 
+                  href="/workflows" 
+                  onClick={handleStudioClick}
+                  className="hover:text-[#777b86] transition-colors"
+                >
+                  Studio
+                </Link>
+              </li>
               <li>
                 <a 
                   href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
