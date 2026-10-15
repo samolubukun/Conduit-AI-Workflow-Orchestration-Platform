@@ -12,11 +12,14 @@ const secretServerKey =
   process.env.STACK_SECRET_SERVER_KEY ||
   process.env.HEXCLAVE_SECRET_SERVER_KEY;
 
+// Fallback valid UUID so Stack Auth validation passes when env vars are omitted
+const FALLBACK_UUID = "00000000-0000-4000-8000-000000000000";
+
 export const stackServerApp = new StackServerApp({
   tokenStore: "nextjs-cookie",
-  projectId: projectId || "stack-build-fallback",
-  publishableClientKey: publishableClientKey || "pck_build_fallback",
-  secretServerKey: secretServerKey || "ssk_build_fallback",
+  projectId: projectId || FALLBACK_UUID,
+  publishableClientKey: publishableClientKey || "pck_00000000000000000000000000000000",
+  secretServerKey: secretServerKey || "ssk_00000000000000000000000000000000",
   urls: {
     signIn: "/login",
     signUp: "/signup",
