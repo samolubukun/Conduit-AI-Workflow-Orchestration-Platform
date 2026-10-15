@@ -222,7 +222,7 @@ export function LandingFooter() {
         {/* Bottom Editorial Bar */}
         <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-['var(--font-sohne)',sans-serif] text-[14px] text-[#777b86]">
           <div>
-            © {new Date().getFullYear()} Conduit. Designed with editorial restraint.
+            © {new Date().getFullYear()} Conduit. All rights reserved.
           </div>
           <div>
             Built by{" "}

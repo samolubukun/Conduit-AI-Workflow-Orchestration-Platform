@@ -74,14 +74,6 @@ export function AboutSection() {
               Route reasoning jobs across DeepSeek R1, Claude 3.5 Sonnet, and GPT-4o based on live latency, token expenditure, and error thresholds.
             </p>
           </div>
-          <div className="pt-6">
-            <Link 
-              href="/signup" 
-              className="inline-flex items-center text-[15px] text-[#17191c] hover:underline underline-offset-4"
-            >
-              Read specifications →
-            </Link>
-          </div>
         </div>
 
         {/* Pillar 2 */}
@@ -97,14 +89,6 @@ export function AboutSection() {
               Trigger instantaneous webhooks from Stripe, GitHub, or Telegram anywhere globally with sub-100ms guarantees and zero server warmup penalties.
             </p>
           </div>
-          <div className="pt-6">
-            <Link 
-              href="/signup" 
-              className="inline-flex items-center text-[15px] text-[#17191c] hover:underline underline-offset-4"
-            >
-              View network specs →
-            </Link>
-          </div>
         </div>
 
         {/* Pillar 3 */}
@@ -119,14 +103,6 @@ export function AboutSection() {
             <p className="font-['var(--font-sohne)',sans-serif] text-[15px] text-[#777b86] leading-relaxed">
               Store production API keys and OAuth secrets with AES-256 GCM hardware encryption. Decrypted strictly in ephemeral sandbox memory.
             </p>
-          </div>
-          <div className="pt-6">
-            <Link 
-              href="/signup" 
-              className="inline-flex items-center text-[15px] text-[#17191c] hover:underline underline-offset-4"
-            >
-              Security overview →
-            </Link>
           </div>
         </div>
 
