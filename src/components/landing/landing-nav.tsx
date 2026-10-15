@@ -3,141 +3,137 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { 
-  ArrowRight, 
-  Menu, 
-  X, 
-  Layers, 
-  Github, 
-  Sparkles,
-  Zap,
-  ShieldCheck,
-  CheckCircle2
-} from "lucide-react";
-import { Button } from "@/components/ui/button";
+import { Menu, X, Github, ArrowRight } from "lucide-react";
 
 export function LandingNavbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-border/50 bg-background/80 backdrop-blur-xl transition-all">
-      <div className="max-w-7xl mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
+    <header className="sticky top-0 z-50 w-full bg-[#ffffff]/90 backdrop-blur-md transition-all border-b border-[#f2f2f3]">
+      <div className="max-w-[1200px] mx-auto flex h-16 items-center justify-between px-4 sm:px-6">
         
-        {/* Brand Logo & Name */}
-        <Link href="/" className="flex items-center gap-3 group">
-          <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-primary/10 border border-primary/20 transition-transform group-hover:scale-105 overflow-hidden shadow-sm p-1.5">
-            <Image src="/logos/logo-light.svg" alt="Conduit Logo" width={32} height={32} className="object-contain w-full h-full" priority />
+        {/* Brand Logo & Editorial Wordmark */}
+        <Link href="/" className="flex items-center gap-2.5 group">
+          <div className="w-6 h-6 text-[#17191c] transition-transform group-hover:scale-105">
+            <svg viewBox="0 0 48 48" fill="none" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+              <path d="M 10 24 C 16 24, 18 12, 34 12" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M 10 24 C 18 24, 24 24, 38 24" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+              <path d="M 10 24 C 16 24, 18 36, 34 36" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+              <circle cx="10" cy="24" r="4.5" fill="none" stroke="currentColor" strokeWidth="2.5"/>
+              <circle cx="10" cy="24" r="2" fill="currentColor"/>
+              <circle cx="34" cy="12" r="3.8" fill="none" stroke="currentColor" strokeWidth="2"/>
+              <circle cx="34" cy="12" r="1.6" fill="currentColor"/>
+              <circle cx="38" cy="24" r="4" fill="none" stroke="currentColor" strokeWidth="2"/>
+              <circle cx="38" cy="24" r="1.8" fill="currentColor"/>
+              <circle cx="34" cy="36" r="3.8" fill="none" stroke="currentColor" strokeWidth="2"/>
+              <circle cx="34" cy="36" r="1.6" fill="currentColor"/>
+            </svg>
           </div>
-          <span className="text-xl font-extrabold tracking-tight text-foreground">Conduit</span>
+          <span className="font-['var(--font-signifier)',Georgia,serif] text-xl font-normal tracking-[-0.66px] text-[#17191c]">
+            Conduit
+          </span>
         </Link>
 
-        {/* Navigation Links */}
-        <nav className="hidden md:flex items-center gap-7 text-sm font-medium text-muted-foreground">
-          <a href="#about" className="hover:text-foreground transition-colors">Process</a>
-          <a href="#features" className="hover:text-foreground transition-colors">Features</a>
-          <a href="#workflow" className="hover:text-foreground transition-colors">Visual Simulator</a>
-          <a href="#integrations" className="hover:text-foreground transition-colors">Integrations</a>
-          <a href="#pricing" className="hover:text-foreground transition-colors">Pricing</a>
+        {/* Navigation Links (Whisper-quiet sans-serif, weight 400, no background) */}
+        <nav className="hidden md:flex items-center gap-8 font-['var(--font-sohne)',sans-serif] text-[15px] font-normal text-[#17191c]">
+          <a href="#about" className="hover:text-[#777b86] transition-colors py-0.5">Process</a>
+          <a href="#features" className="hover:text-[#777b86] transition-colors py-0.5">Features</a>
+          <a href="#workflow" className="hover:text-[#777b86] transition-colors py-0.5">Simulator</a>
+          <a href="#integrations" className="hover:text-[#777b86] transition-colors py-0.5">Integrations</a>
+          <a href="#pricing" className="hover:text-[#777b86] transition-colors py-0.5">Pricing</a>
         </nav>
 
-        {/* Actions / Auth */}
-        <div className="hidden sm:flex items-center gap-3">
-          <Button asChild variant="outline" size="sm" className="text-xs font-semibold rounded-xl border-border/80 hover:bg-muted/60 gap-1.5 shadow-sm">
-            <a 
-              href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
-              target="_blank" 
-              rel="noopener noreferrer"
-              className="flex items-center gap-1.5"
-            >
-              <Github className="w-3.5 h-3.5" />
-              <span>GitHub</span>
-            </a>
-          </Button>
-          <Button asChild variant="ghost" size="sm" className="text-xs font-semibold">
-            <Link href="/login">Sign in</Link>
-          </Button>
-          <Button asChild size="sm" className="text-xs font-semibold rounded-xl shadow-sm hover:shadow-md">
-            <Link href="/signup">
-              <span>Sign up</span>
-              <ArrowRight className="w-3.5 h-3.5 ml-1" />
-            </Link>
-          </Button>
+        {/* Action Pair: Text Link + Filled Pill lozenge */}
+        <div className="hidden sm:flex items-center gap-5">
+          <a 
+            href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="font-['var(--font-sohne)',sans-serif] text-[15px] font-normal text-[#17191c] hover:text-[#777b86] flex items-center gap-1.5 transition-colors"
+          >
+            <Github className="w-3.5 h-3.5" />
+            <span>GitHub</span>
+          </a>
+          <Link 
+            href="/login" 
+            className="font-['var(--font-sohne)',sans-serif] text-[15px] font-normal text-[#17191c] hover:text-[#777b86] transition-colors"
+          >
+            Sign in
+          </Link>
+          <Link 
+            href="/signup" 
+            className="inline-flex items-center justify-center font-['var(--font-sohne)',sans-serif] text-[15px] font-normal bg-[#17191c] text-[#ffffff] px-5 py-2 rounded-full hover:bg-black transition-all"
+          >
+            Get started
+          </Link>
         </div>
 
-        {/* Mobile menu button */}
+        {/* Mobile menu trigger */}
         <div className="flex md:hidden">
-          <Button
-            variant="ghost"
-            size="icon"
+          <button
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className="p-2 text-[#17191c] focus:outline-none"
             aria-label="Toggle menu"
           >
             {mobileMenuOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
-          </Button>
+          </button>
         </div>
       </div>
 
       {/* Mobile Drawer */}
       {mobileMenuOpen && (
-        <div className="md:hidden border-b border-border/80 bg-background/95 backdrop-blur-2xl px-4 py-6 space-y-4">
-          <div className="flex flex-col space-y-3 text-sm font-medium">
+        <div className="md:hidden border-b border-[#ececec] bg-[#ffffff] px-6 py-6 space-y-4">
+          <div className="flex flex-col space-y-3 font-['var(--font-sohne)',sans-serif] text-[15px] text-[#17191c]">
             <a 
               href="#about" 
               onClick={() => setMobileMenuOpen(false)}
-              className="text-muted-foreground hover:text-foreground py-1"
+              className="py-1 hover:text-[#777b86]"
             >
               Process
             </a>
             <a 
               href="#features" 
               onClick={() => setMobileMenuOpen(false)}
-              className="text-muted-foreground hover:text-foreground py-1"
+              className="py-1 hover:text-[#777b86]"
             >
               Features
             </a>
             <a 
               href="#workflow" 
               onClick={() => setMobileMenuOpen(false)}
-              className="text-muted-foreground hover:text-foreground py-1"
+              className="py-1 hover:text-[#777b86]"
             >
               Visual Simulator
             </a>
             <a 
               href="#integrations" 
               onClick={() => setMobileMenuOpen(false)}
-              className="text-muted-foreground hover:text-foreground py-1"
+              className="py-1 hover:text-[#777b86]"
             >
               Integrations
             </a>
             <a 
               href="#pricing" 
               onClick={() => setMobileMenuOpen(false)}
-              className="text-muted-foreground hover:text-foreground py-1"
+              className="py-1 hover:text-[#777b86]"
             >
               Pricing
             </a>
           </div>
 
-          <div className="pt-4 border-t border-border/40 flex flex-col gap-2">
-            <Button asChild variant="outline" className="w-full justify-center text-xs font-semibold gap-2">
-              <a 
-                href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
-                target="_blank" 
-                rel="noopener noreferrer"
-              >
-                <Github className="w-4 h-4" />
-                <span>GitHub Repository</span>
-              </a>
-            </Button>
-            <Button asChild variant="outline" className="w-full justify-center text-xs font-semibold">
-              <Link href="/login">Sign in</Link>
-            </Button>
-            <Button asChild className="w-full justify-center text-xs font-semibold">
-              <Link href="/signup">
-                <span>Sign up</span>
-                <ArrowRight className="w-3.5 h-3.5 ml-1" />
-              </Link>
-            </Button>
+          <div className="pt-4 border-t border-[#f2f2f3] flex flex-col gap-3">
+            <Link 
+              href="/login" 
+              className="w-full text-center py-2.5 font-['var(--font-sohne)',sans-serif] text-[15px] text-[#17191c] border border-[#17191c] rounded-full"
+            >
+              Sign in
+            </Link>
+            <Link 
+              href="/signup" 
+              className="w-full text-center py-2.5 font-['var(--font-sohne)',sans-serif] text-[15px] bg-[#17191c] text-[#ffffff] rounded-full"
+            >
+              Get started
+            </Link>
           </div>
         </div>
       )}
@@ -147,68 +143,99 @@ export function LandingNavbar() {
 
 export function LandingFooter() {
   return (
-    <footer className="border-t border-border/40 bg-[#070b14] text-white py-16 px-4 sm:px-6">
-      <div className="max-w-4xl mx-auto flex flex-col items-center text-center">
-        
-        {/* Centered Brand Emblem in framing box with accent shadow/border like reference */}
-        <div className="relative mb-6 group">
-          <div className="absolute -inset-1 rounded-2xl bg-indigo-500/20 blur-sm group-hover:bg-indigo-500/30 transition-all pointer-events-none" />
-          <div className="relative flex items-center justify-center w-20 h-20 rounded-2xl bg-white border-2 border-indigo-400/80 shadow-2xl p-2.5 overflow-hidden">
-            <Image 
-              src="/logos/logo-light.svg" 
-              alt="Conduit" 
-              width={52} 
-              height={52} 
-              className="object-contain" 
-            />
+    <footer className="border-t border-[#f2f2f3] bg-[#ffffff] text-[#17191c] py-20 px-4 sm:px-6">
+      <div className="max-w-[1200px] mx-auto">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10 pb-16 border-b border-[#f2f2f3]">
+          
+          {/* Brand Column */}
+          <div className="md:col-span-5 space-y-4">
+            <Link href="/" className="inline-flex items-center gap-2.5">
+              <div className="w-6 h-6 text-[#17191c]">
+                <svg viewBox="0 0 48 48" fill="none" className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M 10 24 C 16 24, 18 12, 34 12" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                  <path d="M 10 24 C 18 24, 24 24, 38 24" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                  <path d="M 10 24 C 16 24, 18 36, 34 36" stroke="currentColor" strokeWidth="3" strokeLinecap="round"/>
+                  <circle cx="10" cy="24" r="4.5" fill="none" stroke="currentColor" strokeWidth="2.5"/>
+                  <circle cx="10" cy="24" r="2" fill="currentColor"/>
+                  <circle cx="34" cy="12" r="3.8" fill="none" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="34" cy="12" r="1.6" fill="currentColor"/>
+                  <circle cx="38" cy="24" r="4" fill="none" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="38" cy="24" r="1.8" fill="currentColor"/>
+                  <circle cx="34" cy="36" r="3.8" fill="none" stroke="currentColor" strokeWidth="2"/>
+                  <circle cx="34" cy="36" r="1.6" fill="currentColor"/>
+                </svg>
+              </div>
+              <span className="font-['var(--font-signifier)',Georgia,serif] text-xl font-normal tracking-tight text-[#17191c]">
+                Conduit
+              </span>
+            </Link>
+            <p className="font-['var(--font-sohne)',sans-serif] text-[15px] text-[#777b86] max-w-sm leading-relaxed">
+              The workflow automation platform built for modern intelligence. Connect LLMs, voice, vector storage, and webhooks on a quiet canvas.
+            </p>
           </div>
+
+          {/* Navigation Columns */}
+          <div className="md:col-span-2">
+            <h4 className="font-['var(--font-sohne)',sans-serif] text-[14px] text-[#979799] mb-4">
+              Platform
+            </h4>
+            <ul className="space-y-3 font-['var(--font-sohne)',sans-serif] text-[15px] text-[#17191c]">
+              <li><a href="#about" className="hover:text-[#777b86] transition-colors">Process</a></li>
+              <li><a href="#features" className="hover:text-[#777b86] transition-colors">Features</a></li>
+              <li><a href="#workflow" className="hover:text-[#777b86] transition-colors">Simulator</a></li>
+              <li><a href="#integrations" className="hover:text-[#777b86] transition-colors">Integrations</a></li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-2">
+            <h4 className="font-['var(--font-sohne)',sans-serif] text-[14px] text-[#979799] mb-4">
+              Resources
+            </h4>
+            <ul className="space-y-3 font-['var(--font-sohne)',sans-serif] text-[15px] text-[#17191c]">
+              <li><a href="#pricing" className="hover:text-[#777b86] transition-colors">Pricing</a></li>
+              <li><Link href="/workflows" className="hover:text-[#777b86] transition-colors">Studio</Link></li>
+              <li>
+                <a 
+                  href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
+                  target="_blank" 
+                  rel="noopener noreferrer" 
+                  className="hover:text-[#777b86] transition-colors"
+                >
+                  GitHub
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          <div className="md:col-span-3">
+            <h4 className="font-['var(--font-sohne)',sans-serif] text-[14px] text-[#979799] mb-4">
+              Legal
+            </h4>
+            <ul className="space-y-3 font-['var(--font-sohne)',sans-serif] text-[15px] text-[#777b86]">
+              <li><Link href="/terms" className="hover:text-[#17191c] transition-colors">Terms of Service</Link></li>
+              <li><Link href="/privacy" className="hover:text-[#17191c] transition-colors">Privacy Policy</Link></li>
+            </ul>
+          </div>
+
         </div>
 
-        {/* Brand Name Title */}
-        <h3 className="text-2xl sm:text-3xl font-extrabold tracking-wider text-white uppercase mb-3">
-          CONDUIT
-        </h3>
-
-        {/* Tagline */}
-        <p className="text-xs sm:text-sm font-semibold tracking-widest text-slate-300/80 uppercase max-w-xl mx-auto mb-10 leading-relaxed">
-          The unified workflow automation engine for data intelligence and AI execution.
-        </p>
-
-        {/* Centered Links Bar */}
-        <nav className="flex flex-wrap items-center justify-center gap-6 sm:gap-10 text-xs sm:text-sm font-medium text-slate-300/90 mb-10">
-          <a href="#features" className="hover:text-indigo-400 transition-colors">Features</a>
-          <a href="#workflow" className="hover:text-indigo-400 transition-colors">Visual Simulator</a>
-          <a href="#integrations" className="hover:text-indigo-400 transition-colors">Integrations</a>
-          <a href="#pricing" className="hover:text-indigo-400 transition-colors">Pricing</a>
-          <a 
-            href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
-            target="_blank" 
-            rel="noopener noreferrer" 
-            className="inline-flex items-center gap-1.5 hover:text-indigo-400 transition-colors"
-          >
-            <Github className="w-3.5 h-3.5" />
-            <span>GitHub</span>
-          </a>
-          <Link href="/terms" className="hover:text-indigo-400 transition-colors">Terms of Service</Link>
-          <Link href="/privacy" className="hover:text-indigo-400 transition-colors">Privacy Policy</Link>
-        </nav>
-
-        {/* Copyright & Designed and developed attribution */}
-        <div className="flex flex-col items-center gap-2 text-xs text-slate-400/80 font-normal">
-          <div>© {new Date().getFullYear()} Conduit. All rights reserved.</div>
-          <div className="text-[12px] text-slate-400">
-            Designed and developed by{" "}
+        {/* Bottom Editorial Bar */}
+        <div className="pt-8 flex flex-col sm:flex-row items-center justify-between gap-4 font-['var(--font-sohne)',sans-serif] text-[14px] text-[#777b86]">
+          <div>
+            © {new Date().getFullYear()} Conduit. Designed with editorial restraint.
+          </div>
+          <div>
+            Built by{" "}
             <a 
               href="https://samuelolubukun.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-indigo-400 hover:text-indigo-300 underline underline-offset-4 transition-colors font-medium"
+              className="text-[#17191c] hover:underline underline-offset-4"
             >
               Samuel Olubukun
             </a>
           </div>
         </div>
-
       </div>
     </footer>
   );

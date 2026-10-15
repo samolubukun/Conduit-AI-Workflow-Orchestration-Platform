@@ -1,22 +1,19 @@
-import React from "react";
+"use client";
+
+import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { 
   ArrowRight, 
+  Github, 
   Sparkles, 
-  Zap, 
-  ShieldCheck, 
-  Layers, 
-  Play, 
-  CheckCircle2,
-  Workflow,
-  Cpu,
-  ArrowUpRight,
-  GitBranch,
-  Lock,
-  Github
+  Send, 
+  AtSign, 
+  Info,
+  TrendingUp,
+  SlidersHorizontal,
+  CheckCircle2
 } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { LandingNavbar, LandingFooter } from "@/components/landing/landing-nav";
 import { HeroWorkflowSimulator } from "@/components/landing/hero-workflow-simulator";
 import { AboutSection } from "@/components/landing/about-section";
@@ -25,127 +22,229 @@ import { IntegrationGrid } from "@/components/landing/integration-grid";
 import { PricingPreview } from "@/components/landing/pricing-preview";
 
 export default function LandingPage() {
+  const [composerPrompt, setComposerPrompt] = useState("");
+  const [submittedPrompt, setSubmittedPrompt] = useState<string | null>(null);
+
+  const handleComposerSubmit = (e: React.FormEvent) => {
+    e.preventDefault();
+    if (!composerPrompt.trim()) return;
+    setSubmittedPrompt(composerPrompt);
+  };
+
   return (
-    <div className="min-h-screen bg-background text-foreground flex flex-col selection:bg-primary/20 selection:text-primary">
-      {/* Navbar */}
+    <div className="min-h-screen bg-[#ffffff] text-[#17191c] flex flex-col selection:bg-[#fbe1d1] selection:text-[#5d2a1a] overflow-x-hidden">
+      {/* Editorial Navbar */}
       <LandingNavbar />
 
-      <main className="flex-1">
-        {/* HERO SECTION */}
-        <section className="relative pt-20 pb-20 px-4 sm:px-6 overflow-hidden">
+      <main className="flex-1 w-full overflow-x-hidden">
+        {/* HERO SECTION: Editorial Spread on Paper White Canvas */}
+        <section className="relative pt-12 sm:pt-24 pb-16 sm:pb-20 px-3.5 sm:px-6 overflow-hidden">
           
-          {/* Subtle background glow mesh */}
-          <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[400px] bg-gradient-to-tr from-primary/15 via-sky-500/10 to-transparent blur-3xl pointer-events-none rounded-full" />
-          
-          <div className="max-w-5xl mx-auto text-center relative z-10">
-            {/* Headline */}
-            <h1 className="text-4xl sm:text-6xl md:text-7xl font-extrabold tracking-tight text-foreground leading-[1.08]">
-              The <span className="bg-gradient-to-r from-[#070b14] via-[#16213e] to-[#0f172a] dark:from-[#cbd5e1] dark:via-[#94a3b8] dark:to-[#64748b] bg-clip-text text-transparent underline decoration-indigo-500/40 decoration-wavy decoration-2 underline-offset-8">workflow automation</span> platform built for modern intelligence.
-            </h1>
+          <div className="max-w-[1200px] mx-auto relative z-10 w-full">
+            
+            {/* Top Display Typography Spread */}
+            <div className="max-w-4xl mx-auto text-center">
+              {/* 90px Display Serif Headline */}
+              <h1 className="font-['var(--font-signifier)',Georgia,serif] text-4xl sm:text-6xl md:text-[76px] lg:text-[88px] font-normal tracking-[-2px] text-[#17191c] leading-[1.08]">
+                The workflow platform <br className="hidden sm:inline" />
+                <span className="italic">built for modern intelligence.</span>
+              </h1>
 
-            {/* Sub-headline */}
-            <p className="mt-6 text-lg sm:text-xl text-muted-foreground max-w-3xl mx-auto leading-relaxed">
-              Design, orchestrate, and execute autonomous pipelines. Connect multi-modal LLMs, speech-to-text, vector search, and webhooks on a fast visual canvas.
-            </p>
+              {/* Sub-headline: Sohne 18px */}
+              <p className="mt-7 font-['var(--font-sohne)',sans-serif] text-[17px] sm:text-[19px] text-[#777b86] max-w-2xl mx-auto leading-relaxed">
+                Design, orchestrate, and execute autonomous pipelines. Connect multi-modal LLMs, voice synthesis, vector search, and webhooks on a quiet visual canvas.
+              </p>
 
-            {/* CTAs */}
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild size="lg" className="h-12 px-8 rounded-2xl text-sm font-semibold shadow-lg shadow-primary/20 hover:shadow-xl transition-all">
-                <Link href="/signup">
-                  <span>Start Building Free</span>
+              {/* Matched Pill CTA Pair */}
+              <div className="mt-9 flex flex-wrap items-center justify-center gap-4 font-['var(--font-sohne)',sans-serif]">
+                <Link
+                  href="/signup"
+                  className="inline-flex items-center justify-center text-[15px] font-normal bg-[#17191c] text-[#ffffff] px-7 py-3 rounded-full hover:bg-black transition-all"
+                >
+                  <span>Start building free</span>
                   <ArrowRight className="w-4 h-4 ml-2" />
                 </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-8 rounded-2xl text-sm font-semibold bg-card/60 backdrop-blur-sm hover:bg-card">
-                <Link href="/workflows">
-                  <span>Open Studio Dashboard</span>
+                <Link
+                  href="/workflows"
+                  className="inline-flex items-center justify-center text-[15px] font-normal bg-transparent text-[#17191c] border border-[#17191c] px-7 py-3 rounded-full hover:bg-[#17191c] hover:text-[#ffffff] transition-all"
+                >
+                  <span>Open studio canvas</span>
                 </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-6 rounded-2xl text-sm font-semibold bg-card/40 backdrop-blur-sm hover:bg-card/80 border-border/80 gap-2">
-                <a 
-                  href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
-                  target="_blank" 
+                <a
+                  href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform"
+                  target="_blank"
                   rel="noopener noreferrer"
-                  className="flex items-center gap-2"
+                  className="inline-flex items-center justify-center text-[15px] font-normal text-[#17191c] hover:text-[#777b86] px-4 py-3 gap-2 transition-colors"
                 >
                   <Github className="w-4 h-4" />
                   <span>GitHub</span>
                 </a>
-              </Button>
-            </div>
+              </div>
 
-            {/* Micro badges below buttons */}
-            <div className="mt-8 flex flex-wrap items-center justify-center gap-6 text-xs text-muted-foreground font-mono">
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
+              {/* Micro Badges (Typographic tags in Ash Gray) */}
+              <div className="mt-8 flex flex-wrap items-center justify-center gap-6 font-['var(--font-sohne)',sans-serif] text-[13px] text-[#979799]">
                 <span>No credit card required</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                <span>50 Complimentary Credits</span>
-              </div>
-              <div className="flex items-center gap-1.5">
-                <CheckCircle2 className="w-4 h-4 text-emerald-500" />
-                <span>Dual Auth (Better & Stack)</span>
+                <span>·</span>
+                <span>50 Complimentary credits</span>
+                <span>·</span>
+                <span>Sub-100ms execution runners</span>
               </div>
             </div>
 
-            {/* Dynamic Interactive Node Simulator */}
-            <div id="workflow">
-              <HeroWorkflowSimulator />
+            {/* FLOATING PRODUCT ARTIFACTS COLLAGE */}
+            <div className="mt-14 relative">
+              
+              {/* Floating Artifact 1: Active Execution Stat Card (Top Right / Offset) */}
+              <div className="hidden lg:flex absolute -top-10 -right-6 z-20 w-72 rounded-[20px] bg-[#ffffff] p-5 shadow-[0_0_0_1px_rgba(4,23,43,0.05),0_20px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.1)] flex-col gap-3 font-['var(--font-sohne)',sans-serif]">
+                <div className="flex items-center justify-between">
+                  <span className="text-[12px] text-[#979799]">Pipeline Throughput</span>
+                  {/* Live Avatar Monogram with directional pointer */}
+                  <div className="relative flex items-center justify-center w-7 h-7 rounded-full bg-[#fbe1d1] text-[#5d2a1a] text-[11px] font-medium">
+                    AF
+                    <div className="absolute -bottom-1 -right-1 w-2.5 h-2.5 bg-[#5d2a1a] rotate-45" />
+                  </div>
+                </div>
+                <div className="flex items-baseline justify-between">
+                  <div className="text-[24px] font-medium text-[#17191c]">48.2k ops</div>
+                  <div className="text-[12px] text-[#5d2a1a] font-mono">↑ 5.5x vs last week</div>
+                </div>
+                {/* Gestural line sparkline in Sienna Brown stroke */}
+                <svg className="w-full h-8 overflow-visible" viewBox="0 0 100 24" fill="none">
+                  <path
+                    d="M 0 18 Q 20 22, 35 12 T 70 8 T 100 2"
+                    stroke="#5d2a1a"
+                    strokeWidth="2"
+                    strokeLinecap="round"
+                  />
+                  <circle cx="100" cy="2" r="3" fill="#5d2a1a" />
+                </svg>
+              </div>
+
+              {/* Floating Artifact 2: Live Pipeline Queue Table (Top Left / Offset) */}
+              <div className="hidden lg:flex absolute -top-8 -left-6 z-20 w-72 rounded-[20px] bg-[#ffffff] p-4 shadow-[0_0_0_1px_rgba(4,23,43,0.05),0_20px_25px_-5px_rgba(0,0,0,0.1),0_8px_10px_-6px_rgba(0,0,0,0.1)] flex-col gap-2.5 font-['var(--font-sohne)',sans-serif]">
+                <div className="flex items-center justify-between border-b border-[#f2f2f3] pb-2 text-[12px] text-[#979799]">
+                  <span>Active Nodes</span>
+                  <span className="text-[#17191c] font-medium">Latency</span>
+                </div>
+                <div className="space-y-1.5 text-[12px]">
+                  <div className="flex items-center justify-between">
+                    <span className="text-[#17191c] flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#17191c]" />
+                      DeepSeek R1
+                    </span>
+                    <span className="font-mono text-[#777b86]">420ms</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[#17191c] flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#17191c]" />
+                      ElevenLabs Voice
+                    </span>
+                    <span className="font-mono text-[#777b86]">180ms</span>
+                  </div>
+                  <div className="flex items-center justify-between">
+                    <span className="text-[#17191c] flex items-center gap-1.5">
+                      <span className="w-1.5 h-1.5 rounded-full bg-[#17191c]" />
+                      Telegram Webhook
+                    </span>
+                    <span className="font-mono text-[#777b86]">45ms</span>
+                  </div>
+                </div>
+              </div>
+
+              {/* Interactive Node Canvas Simulator */}
+              <div id="workflow">
+                <HeroWorkflowSimulator />
+              </div>
+
+              {/* Floating Artifact 3: AI Input Composer (Sitting below the simulator) */}
+              <div className="mt-8 max-w-xl mx-auto w-full px-1">
+                <form
+                  onSubmit={handleComposerSubmit}
+                  className="w-full rounded-[16px] bg-[#ffffff] border border-[#ececec] p-1.5 sm:p-3 shadow-[0_0_0_1px_rgba(4,23,43,0.05),0_8px_20px_-4px_rgba(0,0,0,0.08)] flex items-center gap-2 sm:gap-3 transition-all focus-within:border-[#17191c]"
+                >
+                  <div className="hidden sm:flex items-center gap-1 text-[#979799] pl-2 shrink-0">
+                    <AtSign className="w-4 h-4 cursor-pointer hover:text-[#17191c]" />
+                    <Info className="w-4 h-4 cursor-pointer hover:text-[#17191c]" />
+                  </div>
+                  
+                  <input
+                    type="text"
+                    value={composerPrompt}
+                    onChange={(e) => setComposerPrompt(e.target.value)}
+                    placeholder="Ask anything... or prompt a pipeline"
+                    className="flex-1 min-w-0 bg-transparent text-[14px] sm:text-[15px] text-[#17191c] placeholder:text-[#a3a6af] focus:outline-none font-['var(--font-sohne)',sans-serif] px-2 sm:px-0"
+                  />
+
+                  <button
+                    type="submit"
+                    className="w-9 h-9 sm:w-10 sm:h-10 rounded-full bg-[#17191c] text-[#ffffff] flex items-center justify-center shrink-0 hover:bg-black transition-transform active:scale-95"
+                    aria-label="Send prompt"
+                  >
+                    <ArrowRight className="w-4 h-4" />
+                  </button>
+                </form>
+
+                {submittedPrompt && (
+                  <div className="mt-3 text-center font-['var(--font-sohne)',sans-serif] text-[13px] text-[#777b86] animate-in fade-in">
+                    Prompt dispatched to studio runtime: &ldquo;<span className="text-[#17191c]">{submittedPrompt}</span>&rdquo;
+                  </div>
+                )}
+              </div>
+
             </div>
+
           </div>
         </section>
 
-        {/* LOGO MARQUEE / SOCIAL PROOF */}
-        <section className="py-12 border-y border-border/40 bg-muted/10 overflow-hidden">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6">
-            <p className="text-center text-xs font-mono uppercase tracking-widest text-muted-foreground mb-8">
+        {/* LOGO MARQUEE / MODEL ARCHITECTURE BAND (Fog White background) */}
+        <section className="py-14 border-y border-[#f2f2f3] bg-[#fafafb]">
+          <div className="max-w-[1200px] mx-auto px-4 sm:px-6">
+            <p className="text-center font-['var(--font-sohne)',sans-serif] text-[13px] text-[#979799] tracking-wider uppercase mb-8">
               Seamlessly orchestrates with world-class models & platforms
             </p>
 
-            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 opacity-75 grayscale hover:grayscale-0 transition-all duration-300">
-              <div className="flex items-center gap-2 text-sm font-semibold">
-                <Image src="/logos/openai.svg" alt="OpenAI" width={22} height={22} />
+            <div className="flex flex-wrap items-center justify-center gap-8 sm:gap-14 font-['var(--font-sohne)',sans-serif] text-[14px] text-[#777b86]">
+              <div className="flex items-center gap-2">
+                <Image src="/logos/openai.svg" alt="OpenAI" width={20} height={20} />
                 <span>OpenAI</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-semibold">
+              <div className="flex items-center gap-2">
                 <Image src="/logos/anthropic.svg" alt="Anthropic" width={20} height={20} />
                 <span>Anthropic</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-semibold">
-                <Image src="/logos/deepseek.svg" alt="DeepSeek" width={22} height={22} />
+              <div className="flex items-center gap-2">
+                <Image src="/logos/deepseek.svg" alt="DeepSeek" width={20} height={20} />
                 <span>DeepSeek</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-semibold">
-                <Image src="/logos/stripe.svg" alt="Stripe" width={28} height={20} />
+              <div className="flex items-center gap-2">
+                <Image src="/logos/stripe.svg" alt="Stripe" width={24} height={18} />
                 <span>Stripe</span>
               </div>
               <a 
                 href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
                 target="_blank" 
                 rel="noopener noreferrer" 
-                className="flex items-center gap-2 text-sm font-semibold hover:text-foreground transition-colors"
+                className="flex items-center gap-2 hover:text-[#17191c] transition-colors"
               >
-                <Image src="/logos/github.svg" alt="GitHub" width={20} height={20} />
+                <Image src="/logos/github.svg" alt="GitHub" width={18} height={18} />
                 <span>GitHub</span>
               </a>
-              <div className="flex items-center gap-2 text-sm font-semibold">
-                <Image src="/logos/notion.svg" alt="Notion" width={20} height={20} />
+              <div className="flex items-center gap-2">
+                <Image src="/logos/notion.svg" alt="Notion" width={18} height={18} />
                 <span>Notion</span>
               </div>
-              <div className="flex items-center gap-2 text-sm font-semibold">
-                <Image src="/logos/telegram.svg" alt="Telegram" width={20} height={20} />
+              <div className="flex items-center gap-2">
+                <Image src="/logos/telegram.svg" alt="Telegram" width={18} height={18} />
                 <span>Telegram</span>
               </div>
             </div>
           </div>
         </section>
 
-        {/* ABOUT SECTION */}
+        {/* ABOUT SECTION (Includes the single Accent Blush Peach Card) */}
         <AboutSection />
 
-        {/* BENTO CAPABILITIES */}
+        {/* BENTO CAPABILITIES (24px Mist Gray cards) */}
         <div id="features">
           <BentoShowcase />
         </div>
@@ -155,56 +254,44 @@ export default function LandingPage() {
           <IntegrationGrid />
         </div>
 
-        {/* PRICING */}
+        {/* PRICING PREVIEW */}
         <div id="pricing">
           <PricingPreview />
         </div>
 
-        {/* FINAL CALL TO ACTION */}
-        <section className="py-24 px-4 sm:px-6 relative overflow-hidden">
-          <div className="max-w-5xl mx-auto rounded-3xl border border-indigo-500/30 bg-gradient-to-r from-indigo-500/10 via-purple-500/5 to-cyan-500/10 p-8 sm:p-14 relative overflow-hidden backdrop-blur-xl text-center">
-            
-            <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider bg-indigo-500/10 text-indigo-500 dark:text-indigo-400 border border-indigo-500/20 mb-6">
-              <Zap className="w-3.5 h-3.5" /> Instant Onboarding
-            </div>
-
-            <h2 className="text-3xl sm:text-5xl font-extrabold tracking-tight text-foreground">
-              Ready to automate your workflows?
+        {/* EDITORIAL CALL TO ACTION */}
+        <section className="py-24 sm:py-32 px-4 sm:px-6 bg-[#fafafb] border-t border-[#f2f2f3]">
+          <div className="max-w-[1200px] mx-auto text-center">
+            <h2 className="font-['var(--font-signifier)',Georgia,serif] text-4xl sm:text-5xl lg:text-6xl font-normal tracking-[-0.96px] text-[#17191c] max-w-2xl mx-auto leading-tight">
+              Ready to orchestrate your <br className="hidden sm:inline" />
+              <span className="italic">first autonomous pipeline?</span>
             </h2>
 
-            <p className="mt-4 text-base sm:text-lg text-muted-foreground max-w-xl mx-auto">
-              Start building autonomous pipelines in minutes. No credit card required. Free tier includes 50 credits.
+            <p className="mt-5 font-['var(--font-sohne)',sans-serif] text-[17px] text-[#777b86] max-w-xl mx-auto leading-relaxed">
+              Start building in minutes. Free tier includes 50 complimentary credits with zero setup penalties.
             </p>
 
-            <div className="mt-8 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Button asChild size="lg" className="h-12 px-8 rounded-2xl text-sm font-semibold shadow-lg shadow-primary/25">
-                <Link href="/signup">
-                  <span>Create Free Account</span>
-                  <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-8 rounded-2xl text-sm font-semibold bg-card/60">
-                <Link href="/workflows">
-                  <span>View Demo Workflows</span>
-                </Link>
-              </Button>
-              <Button asChild variant="outline" size="lg" className="h-12 px-6 rounded-2xl text-sm font-semibold bg-card/40 hover:bg-card/80 border-border/80 gap-2">
-                <a 
-                  href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform" 
-                  target="_blank" 
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2"
-                >
-                  <Github className="w-4 h-4" />
-                  <span>Star on GitHub</span>
-                </a>
-              </Button>
+            <div className="mt-8 flex flex-wrap items-center justify-center gap-4 font-['var(--font-sohne)',sans-serif]">
+              <Link
+                href="/signup"
+                className="inline-flex items-center justify-center text-[15px] font-normal bg-[#17191c] text-[#ffffff] px-8 py-3 rounded-full hover:bg-black transition-all"
+              >
+                <span>Create free account</span>
+                <ArrowRight className="w-4 h-4 ml-2" />
+              </Link>
+              <Link
+                href="/workflows"
+                className="inline-flex items-center justify-center text-[15px] font-normal bg-transparent text-[#17191c] border border-[#17191c] px-7 py-3 rounded-full hover:bg-[#17191c] hover:text-[#ffffff] transition-all"
+              >
+                <span>View demo workflows</span>
+              </Link>
             </div>
+
           </div>
         </section>
       </main>
 
-      {/* Footer */}
+      {/* Editorial Footer */}
       <LandingFooter />
     </div>
   );

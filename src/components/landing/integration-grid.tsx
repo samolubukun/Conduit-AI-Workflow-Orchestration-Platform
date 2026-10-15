@@ -3,7 +3,7 @@
 import React, { useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowRight, Search, CheckCircle2 } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 interface IntegrationItem {
   name: string;
@@ -41,65 +41,65 @@ export function IntegrationGrid() {
     : INTEGRATIONS.filter((item) => item.category === filter);
 
   return (
-    <section className="py-24 px-4 sm:px-6 max-w-7xl mx-auto border-t border-border/60">
+    <section id="integrations" className="py-24 px-4 sm:px-6 max-w-[1200px] mx-auto border-t border-[#f2f2f3]">
       <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-12">
         <div>
-          <div className="text-xs font-mono font-semibold uppercase tracking-wider text-primary mb-2">
-            Native Connectors
-          </div>
-          <h2 className="text-3xl sm:text-4xl font-bold tracking-tight text-foreground">
-            Connect your favorite tools & models
+          <span className="font-['var(--font-sohne)',sans-serif] text-[14px] text-[#979799] uppercase tracking-wider block mb-3">
+            Ecosystem
+          </span>
+          <h2 className="font-['var(--font-signifier)',Georgia,serif] text-4xl sm:text-5xl font-normal tracking-[-0.96px] text-[#17191c]">
+            Native connectors & protocols
           </h2>
-          <p className="mt-2 text-sm sm:text-base text-muted-foreground">
+          <p className="mt-3 font-['var(--font-sohne)',sans-serif] text-[17px] text-[#777b86]">
             Trigger pipelines from any service, process with top-tier AI, and dispatch anywhere.
           </p>
         </div>
 
-        {/* Filter buttons */}
-        <div className="flex flex-wrap items-center gap-2">
+        {/* Filter pill buttons */}
+        <div className="flex flex-wrap items-center gap-2 font-['var(--font-sohne)',sans-serif]">
           {["all", "ai", "messaging", "data", "productivity", "storage"].map((cat) => (
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-3.5 py-1.5 rounded-full text-xs font-medium capitalize transition-all ${
+              className={`px-4 py-1.5 rounded-full text-[14px] font-normal capitalize transition-all ${
                 filter === cat
-                  ? "bg-primary text-primary-foreground shadow-sm"
-                  : "bg-muted/60 text-muted-foreground hover:bg-muted hover:text-foreground"
+                  ? "bg-[#17191c] text-[#ffffff]"
+                  : "bg-[#f2f2f3] text-[#777b86] hover:text-[#17191c]"
               }`}
             >
-              {cat === "all" ? "All Tools" : cat}
+              {cat === "all" ? "All Connectors" : cat}
             </button>
           ))}
         </div>
       </div>
 
-      {/* Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+      {/* Grid: 20px radius cards on white with hairline border */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 font-['var(--font-sohne)',sans-serif]">
         {filtered.map((item) => (
           <div
             key={item.name}
-            className="group relative flex items-start gap-4 p-5 rounded-2xl border border-border/70 bg-card/70 hover:bg-card hover:border-primary/40 backdrop-blur-sm transition-all duration-200 hover:shadow-md"
+            className="group flex items-start gap-4 p-5 rounded-[20px] bg-[#ffffff] border border-[#ececec] hover:border-[#17191c] transition-all"
           >
-            <div className="flex items-center justify-center w-12 h-12 rounded-xl bg-muted/60 border border-border/80 shrink-0 group-hover:scale-105 transition-transform">
+            <div className="flex items-center justify-center w-11 h-11 rounded-[14px] bg-[#f2f2f3] shrink-0">
               <Image 
                 src={item.logo} 
                 alt={item.name} 
-                width={24} 
-                height={24} 
-                className={`object-contain ${item.name === "ElevenLabs" ? "dark:invert" : ""}`} 
+                width={22} 
+                height={22} 
+                className="object-contain" 
               />
             </div>
 
             <div className="min-w-0 flex-1">
               <div className="flex items-center justify-between">
-                <h4 className="text-sm font-semibold text-foreground group-hover:text-primary transition-colors">
+                <h4 className="text-[16px] font-medium text-[#17191c]">
                   {item.name}
                 </h4>
-                <span className="text-[10px] font-mono uppercase text-muted-foreground px-1.5 py-0.5 rounded bg-muted/80">
+                <span className="text-[11px] font-mono text-[#979799]">
                   {item.category}
                 </span>
               </div>
-              <p className="text-xs text-muted-foreground mt-1 line-clamp-2 leading-relaxed">
+              <p className="text-[13px] text-[#777b86] mt-1 line-clamp-2 leading-relaxed">
                 {item.description}
               </p>
             </div>
@@ -109,11 +109,11 @@ export function IntegrationGrid() {
 
       <div className="mt-12 text-center">
         <Link
-          href="/credentials"
-          className="inline-flex items-center gap-2 text-xs font-mono font-semibold text-primary hover:underline"
+          href="/workflows"
+          className="inline-flex items-center text-[15px] text-[#17191c] hover:underline underline-offset-4"
         >
-          <span>Need custom API webhooks or OAuth? Explore credentials</span>
-          <ArrowRight className="w-3.5 h-3.5" />
+          <span>Need custom API webhooks or OAuth? Configure in studio</span>
+          <span className="ml-1.5">→</span>
         </Link>
       </div>
     </section>
