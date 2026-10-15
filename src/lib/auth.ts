@@ -4,6 +4,8 @@ import db from "@/server/db";
 import * as schema from "@/server/db/schema";
 
 export const auth = betterAuth({
+  secret: process.env.BETTER_AUTH_SECRET || "build-time-secret-fallback-key-min-32-chars-conduit",
+  baseURL: process.env.BETTER_AUTH_URL || process.env.NEXT_PUBLIC_APP_URL || "http://localhost:3000",
   database: drizzleAdapter(db, {
     provider: "pg",
     schema: {
