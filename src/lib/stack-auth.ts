@@ -14,9 +14,9 @@ const secretServerKey =
 
 export const stackServerApp = new StackServerApp({
   tokenStore: "nextjs-cookie",
-  ...(projectId ? { projectId } : {}),
-  ...(publishableClientKey ? { publishableClientKey } : {}),
-  ...(secretServerKey ? { secretServerKey } : {}),
+  projectId: projectId || "stack-build-fallback",
+  publishableClientKey: publishableClientKey || "pck_build_fallback",
+  secretServerKey: secretServerKey || "ssk_build_fallback",
   urls: {
     signIn: "/login",
     signUp: "/signup",
