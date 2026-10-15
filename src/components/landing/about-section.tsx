@@ -14,28 +14,28 @@ export function AboutSection() {
         {/* Left Column: 64px Signifier Headline */}
         <div className="lg:col-span-6">
           <span className="font-['var(--font-sohne)',sans-serif] text-[14px] text-[#979799] uppercase tracking-wider block mb-3">
-            Architectural Philosophy
+            System Architecture
           </span>
           <h2 className="font-['var(--font-signifier)',Georgia,serif] text-4xl sm:text-5xl lg:text-[56px] font-normal tracking-[-0.96px] text-[#17191c] leading-[1.12]">
             Visual AI orchestration <br />
-            <span className="italic">rendered as editorial clarity.</span>
+            <span className="italic">engineered for total clarity.</span>
           </h2>
         </div>
 
         {/* Right Column: Sohne body copy with ghost link */}
         <div className="lg:col-span-6 space-y-5 font-['var(--font-sohne)',sans-serif] text-[17px] text-[#777b86] leading-relaxed lg:pt-8">
           <p>
-            Traditional automation engines obscure complex multi-turn logic inside rigid forms and dense tables. Conduit brings the clarity of an editorial publication to event-driven pipelines.
+            Traditional automation engines trap multi-turn agent logic inside rigid dropdowns and hidden scripts. Conduit gives engineering teams an infinite visual canvas where every step, token stream, and API payload is immediately inspectable in real time.
           </p>
           <p>
-            Connect state-of-the-art LLMs, multi-modal audio transcription, vector databases, and instant webhooks on a quiet canvas with hardware-encrypted secrets and deterministic execution guarantees.
+            Connect state-of-the-art LLMs, multi-modal audio transcription, vector indices, and instant webhooks with hardware-encrypted secrets and deterministic step retries.
           </p>
           <div className="pt-2">
             <Link 
               href="/workflows" 
               className="inline-flex items-center text-[#17191c] font-normal text-[16px] hover:underline underline-offset-4 transition-all"
             >
-              <span>Explore studio architecture</span>
+              <span>Explore canvas architecture</span>
               <span className="ml-1.5">→</span>
             </Link>
           </div>
@@ -50,7 +50,7 @@ export function AboutSection() {
             Execution Performance
           </span>
           <h3 className="font-['var(--font-sohne)',sans-serif] text-2xl sm:text-3xl font-medium tracking-tight text-[#5d2a1a] mb-4 leading-snug">
-            &ldquo;Acyclic graph resolution in sub-40ms, with zero cold-start step execution across multi-model inference pipelines.&rdquo;
+            &ldquo;Deterministic graph resolution with sub-40ms edge traversal, zero-overhead node hydration, and durable step-level recovery across multi-model inference pipelines.&rdquo;
           </h3>
           <p className="font-['var(--font-sohne)',sans-serif] text-[15px] text-[#5d2a1a]/80">
             Topological DAG ordering · Inngest durable step-level retries · AES-256 encrypted credential hydration

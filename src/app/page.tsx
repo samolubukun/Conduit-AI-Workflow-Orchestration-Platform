@@ -52,29 +52,23 @@ export default function LandingPage() {
 
               {/* Sub-headline: Sohne 18px */}
               <p className="mt-7 font-['var(--font-sohne)',sans-serif] text-[17px] sm:text-[19px] text-[#777b86] max-w-2xl mx-auto leading-relaxed">
-                Design, orchestrate, and execute autonomous pipelines. Connect multi-modal LLMs, voice synthesis, vector search, and webhooks on a quiet visual canvas.
+                Connect reasoning models, voice synthesis, vector databases, and instant webhooks on an interactive visual canvas. Backed by durable execution and hardware-encrypted vaults.
               </p>
 
-              {/* Matched Pill CTA Pair */}
+              {/* Hero CTA Button Pair */}
               <div className="mt-9 flex flex-wrap items-center justify-center gap-4 font-['var(--font-sohne)',sans-serif]">
                 <Link
                   href="/signup"
-                  className="inline-flex items-center justify-center text-[15px] font-normal bg-[#17191c] text-[#ffffff] px-7 py-3 rounded-full hover:bg-black transition-all"
+                  className="inline-flex items-center justify-center text-[15px] font-normal bg-transparent text-[#17191c] border border-[#17191c] px-7 py-3 rounded-full hover:bg-[#17191c] hover:text-[#ffffff] transition-all"
                 >
                   <span>Start building free</span>
                   <ArrowRight className="w-4 h-4 ml-2" />
-                </Link>
-                <Link
-                  href="/workflows"
-                  className="inline-flex items-center justify-center text-[15px] font-normal bg-transparent text-[#17191c] border border-[#17191c] px-7 py-3 rounded-full hover:bg-[#17191c] hover:text-[#ffffff] transition-all"
-                >
-                  <span>Open studio canvas</span>
                 </Link>
                 <a
                   href="https://github.com/samolubukun/Conduit-AI-Workflow-Orchestration-Platform"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="inline-flex items-center justify-center text-[15px] font-normal text-[#17191c] hover:text-[#777b86] px-4 py-3 gap-2 transition-colors"
+                  className="inline-flex items-center justify-center text-[15px] font-normal bg-[#17191c] text-[#ffffff] px-6 py-3 rounded-full hover:bg-black transition-all gap-2"
                 >
                   <Github className="w-4 h-4" />
                   <span>GitHub</span>
@@ -268,7 +262,7 @@ export default function LandingPage() {
             </h2>
 
             <p className="mt-5 font-['var(--font-sohne)',sans-serif] text-[17px] text-[#777b86] max-w-xl mx-auto leading-relaxed">
-              Start building in minutes. Free tier includes 50 complimentary credits with zero setup penalties.
+              Start building in minutes. Includes 50 free execution credits, full access to flagship models, and zero credit card requirement.
             </p>
 
             <div className="mt-8 flex flex-wrap items-center justify-center gap-4 font-['var(--font-sohne)',sans-serif]">
@@ -278,12 +272,6 @@ export default function LandingPage() {
               >
                 <span>Create free account</span>
                 <ArrowRight className="w-4 h-4 ml-2" />
-              </Link>
-              <Link
-                href="/workflows"
-                className="inline-flex items-center justify-center text-[15px] font-normal bg-transparent text-[#17191c] border border-[#17191c] px-7 py-3 rounded-full hover:bg-[#17191c] hover:text-[#ffffff] transition-all"
-              >
-                <span>View demo workflows</span>
               </Link>
             </div>
 

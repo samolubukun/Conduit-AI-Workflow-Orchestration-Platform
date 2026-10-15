@@ -15,30 +15,30 @@ import {
 const SECONDARY_SCREENSHOTS = [
   {
     id: "triggers",
-    badge: "Event Ingest",
+    badge: "Any Trigger",
     title: "Trigger Library",
-    description: "Google Forms, Stripe webhooks, GitHub commits & cron intervals.",
+    description: "Capture webhooks from Stripe, form submissions from Google, GitHub commits, or cron routines.",
     image: "/screenshots/trigger-library.jpg",
   },
   {
     id: "integrations-1",
-    badge: "Model Hub",
+    badge: "Inference Fleet",
     title: "AI & Search Actions",
-    description: "DeepSeek R1 reasoning, ElevenLabs voice & Tavily web search.",
+    description: "Orchestrate DeepSeek R1 reasoning, OpenAI, Gemini 1.5, ElevenLabs audio, and Tavily live search.",
     image: "/screenshots/integrations-drawer-1.jpg",
   },
   {
     id: "integrations-2",
-    badge: "Ecosystem",
+    badge: "Ecosystem Sync",
     title: "Storage & Dispatch",
-    description: "Pinecone vector search, Cloudflare R2, Slack & Airtable sync.",
+    description: "Index embeddings into Pinecone, upload assets to S3/R2, and post live alerts to Slack or Telegram.",
     image: "/screenshots/integrations-drawer-2.jpg",
   },
   {
     id: "credentials",
-    badge: "AES-256 Vault",
+    badge: "AES-256 GCM",
     title: "Credential Vault",
-    description: "Hardware-encrypted storage for API keys and webhook secrets.",
+    description: "Hardware-isolated encryption for all provider API tokens, webhook signing keys, and secrets.",
     image: "/screenshots/credentials-vault.jpg",
   },
 ];
@@ -53,11 +53,11 @@ export function BentoShowcase() {
           Studio Architecture
         </span>
         <h2 className="font-['var(--font-signifier)',Georgia,serif] text-4xl sm:text-5xl font-normal tracking-[-0.96px] text-[#17191c] leading-[1.15]">
-          Autonomous modules, <br />
-          <span className="italic">orchestrated on a quiet canvas.</span>
+          From single-step prompts <br />
+          <span className="italic">to resilient production systems.</span>
         </h2>
         <p className="mt-4 font-['var(--font-sohne)',sans-serif] text-[17px] text-[#777b86] leading-relaxed">
-          Combine multi-modal LLMs, voice transcription, vector databases, and instant messaging into unified reactive workflows.
+          Assemble deep reasoning, voice synthesis, vector embeddings, and real-time alerts into cohesive event-driven graphs that never lose state.
         </p>
       </div>
 
